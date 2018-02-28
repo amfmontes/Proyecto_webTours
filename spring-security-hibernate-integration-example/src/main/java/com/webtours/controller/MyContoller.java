@@ -15,12 +15,12 @@ public class MyContoller {
     return "index";
   }
   
-@GetMapping("/login")
-public String login(Model model, Principal principal) {
-//  model.addAttribute("message", "You are logged in as " + principal.getName());
-  return "login";
-}
-  
+//@GetMapping("/login")
+//public String login(Model model, Principal principal) {
+////  model.addAttribute("message", "You are logged in as " + principal.getName());
+//  return "login";
+//}
+//  
 //  @GetMapping("/in")
 //  public String in(Model model, Principal principal) {
 //    model.addAttribute("message", "You are logged in as " + principal.getName());
