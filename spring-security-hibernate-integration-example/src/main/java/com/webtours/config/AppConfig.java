@@ -43,8 +43,10 @@ public class AppConfig {
     props.put(PASS, env.getProperty("mysql.password"));
 
     // Setting Hibernate properties
-    props.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
-    props.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
+    props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+  // props.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
+props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
+props.put("current_session_context_class", env.getProperty("current_session_context_class"));
 
     // Setting C3P0 properties
     props.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_size"));

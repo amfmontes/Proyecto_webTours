@@ -1,35 +1,44 @@
 package com.webtours.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USUARIOS")
-public class Usuario {
-  @Id
-  @Column(name = "IDUSUARIO")
+@Table(name = "usuarios")
+public class Usuario implements Serializable{
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Id
+  @Column(name = "idUsuario")
+  @GeneratedValue(strategy=GenerationType.AUTO)//Para que me los haga automaticamente
   private int idUsuario;
   
-  @Column(name = "NOMBRE")
+  @Column(name = "nombre")
   private String nombre;
 
-  @Column(name = "PASSWORD", nullable = false)
+  @Column(name = "password")
   private String password;
 
-  @Column(name = "CORREO")
+ @Column(name = "correo")
   private String correo;
   
-  @Column(name = "TELEFONO")
+  @Column(name = "telefono")
   private String telefono;
   
-  @Column(name = "ROLE")
+  @Column(name = "role")
   private String role;
 
 public int getIdUsuario() {

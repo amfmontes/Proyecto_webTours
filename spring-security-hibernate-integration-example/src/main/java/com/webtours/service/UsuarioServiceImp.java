@@ -11,17 +11,39 @@ import org.springframework.transaction.annotation.Transactional;
 import com.webtours.dao.UsuarioDao;
 import com.webtours.model.Usuario;
 
-@Service("userDetailsService")
-public class UsuarioServiceImp implements UserDetailsService {
+@Service
+//@Service("userDetailsService")
+public class UsuarioServiceImp implements UsuarioService{
 
   @Autowired
   private UsuarioDao usuarioDao;
+  
+	@Transactional
+	public void add(Usuario usuario) {
+		usuarioDao.add(usuario);
+		
+	}
+
+	@Transactional
+	public Usuario getUsuario(int idUsuario) {
+		// TODO Auto-generated method stub
+		return usuarioDao.getUsuario(idUsuario);
+	}
+//implements UserDetailsService {
+
+
+//  
+// 
+//  
+//  public void setUsuarioDao(UsuarioDao usuarioDAO) {
+//		this.usuarioDao = usuarioDao;
+//	}
 
   @Transactional(readOnly = true)
   @Override
-  public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
+  public UserDetails loadUsuarioByNombre(String nombre) throws UsernameNotFoundException {
 
-    Usuario usuario = usuarioDao.findUserByUsername(nombre);
+    Usuario usuario = usuarioDao.findUsuarioByNombre(nombre);
     UserBuilder builder = null;
     if (usuario != null) {
       
@@ -36,5 +58,9 @@ public class UsuarioServiceImp implements UserDetailsService {
       throw new UsernameNotFoundException("User not found.");
     }
     return builder.build();
-  }
+ }
+
+  
+
+
 }

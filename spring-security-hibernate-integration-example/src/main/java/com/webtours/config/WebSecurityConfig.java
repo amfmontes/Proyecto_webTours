@@ -8,12 +8,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import java.lang.Exception;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired
-  private UserDetailsService userDetailsService;
+//  @Autowired
+//  private UserDetailsService userDetailsService;
   
   @Bean
   public BCryptPasswordEncoder passwordEncoder() {
@@ -22,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+   // auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
   }
 
   @Override
@@ -35,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             // Submit URL of login page.
             .loginProcessingUrl("/loginAction") // Submit URL
             .loginPage("/login")//
-            .defaultSuccessUrl("/index")//
+            .defaultSuccessUrl("/")//
             .failureUrl("/login?error=true")//
             .usernameParameter("username")//
             .passwordParameter("password")

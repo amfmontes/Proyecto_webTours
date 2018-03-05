@@ -1,11 +1,12 @@
-com\webtours\dao\UsuarioDaoImp.class
-com\webtours\config\WebConfig.class
 com\webtours\config\AppConfig.class
 com\webtours\config\WebSecurityConfig.class
 com\webtours\dao\UsuarioDao.class
 com\webtours\model\Usuario.class
 com\webtours\config\MvcWebApplicationInitializer.class
 com\webtours\model\Reservas.class
+com\webtours\service\UsuarioServiceImp.class
+com\webtours\dao\UsuarioDaoImp.class
+com\webtours\config\WebConfig.class
+com\webtours\service\UsuarioService.class
 com\webtours\controller\MyContoller.class
 com\webtours\config\SecurityWebApplicationInitializer.class
-com\webtours\service\UsuarioServiceImp.class
